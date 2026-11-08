@@ -1,0 +1,39 @@
+{
+  "id": "vue3-blog",
+  "stack": "Vue3",
+  "answers": {
+    "PROJECT_NAME": "Vue3 博客",
+    "PROJECT_SUMMARY": "一个支持文章发布、标签分类与评论的前端博客站点",
+    "STACK": "Vue3",
+    "STACK_VERSIONS": "Vue 3.5, Vite 6, Pinia 2, Vue Router 4, Node 20 LTS",
+    "BUILD_TOOL": "Vite",
+    "PACKAGE_MANAGER": "npm",
+    "TEST_FRAMEWORK": "Vitest + Vue Test Utils",
+    "TEST_COMMAND": "npm run test:unit",
+    "BUILD_COMMAND": "npm run build",
+    "LINT_COMMAND": "npm run lint",
+    "DATABASE": "不需要（数据来自后端 API）",
+    "AUTH": "JWT 登录态",
+    "COMMENT_LANGUAGE": "中文",
+    "KEY_DEPS": "vue, vue-router, pinia, vite, vitest, @vue/test-utils",
+    "TARGET_DIRS": "src/components/, src/views/, src/stores/, src/router/, src/composables/, src/api/, tests/unit/",
+    "DEPLOY_TARGET": "静态托管（Vercel）",
+    "DATE": "2026-11-08"
+  },
+  "glossary": [
+    { "term": "文章", "definition": "博客的核心内容单元，包含标题、正文与作者信息" },
+    { "term": "标签", "definition": "用于对文章分类的关键词，一篇文章可关联多个标签" },
+    { "term": "评论", "definition": "读者针对文章发表的回复，可按时间顺序嵌套展示" }
+  ],
+  "expect": {
+    "template": "vue3",
+    "moduleMarkers": {
+      "1": ["Vue 3", "Vite", "Pinia", "package-lock.json"],
+      "2": ["src/components", "src/views", "src/stores", "src/composables"],
+      "3": ["组合式 API", "<script setup>", "defineProps", "defineEmits"],
+      "4": ["Vitest", "Vue Test Utils"],
+      "5": ["v-html", "VITE_", "npm audit"]
+    },
+    "validationCommands": ["npm run test:unit", "npm run build", "npm run lint"]
+  }
+}
