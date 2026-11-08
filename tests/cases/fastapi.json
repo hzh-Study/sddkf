@@ -1,0 +1,39 @@
+{
+  "id": "fastapi-task-api",
+  "stack": "FastAPI",
+  "answers": {
+    "PROJECT_NAME": "FastAPI 任务服务",
+    "PROJECT_SUMMARY": "一个提供任务创建、状态流转与标签管理的 REST API",
+    "STACK": "FastAPI",
+    "STACK_VERSIONS": "Python 3.12, FastAPI 0.115, Pydantic v2, Uvicorn 0.32",
+    "BUILD_TOOL": "uv",
+    "PACKAGE_MANAGER": "uv",
+    "TEST_FRAMEWORK": "pytest + pytest-asyncio",
+    "TEST_COMMAND": "pytest",
+    "BUILD_COMMAND": "mypy app",
+    "LINT_COMMAND": "ruff check .",
+    "DATABASE": "PostgreSQL + SQLAlchemy 2.0",
+    "AUTH": "JWT（OAuth2 密码流）",
+    "COMMENT_LANGUAGE": "中文",
+    "KEY_DEPS": "FastAPI, SQLAlchemy, Alembic, pytest, ruff, mypy",
+    "TARGET_DIRS": "app/, tests/",
+    "DEPLOY_TARGET": "Docker 容器（Uvicorn 单进程）",
+    "DATE": "2026-11-08"
+  },
+  "glossary": [
+    { "term": "任务", "definition": "待办事项的核心业务单元，包含标题与状态" },
+    { "term": "任务状态", "definition": "任务在生命周期中的阶段，如待处理、进行中、已完成" },
+    { "term": "标签", "definition": "用于对任务分类的关键词" }
+  ],
+  "expect": {
+    "template": "fastapi",
+    "moduleMarkers": {
+      "1": ["Python 3.12", "FastAPI", "Pydantic v2", "Uvicorn"],
+      "2": ["app/main.py", "app/routers/", "app/services/"],
+      "3": ["类型注解", "Pydantic v2", "Depends"],
+      "4": ["pytest", "TestClient", "pytest-asyncio"],
+      "5": ["SECRET_KEY", ".env", "CORS", "pip-audit"]
+    },
+    "validationCommands": ["pytest", "mypy app", "ruff check ."]
+  }
+}
