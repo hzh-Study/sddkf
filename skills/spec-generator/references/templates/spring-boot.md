@@ -62,7 +62,7 @@
 - [ ] 代码放在约定包内，调用方向符合 `controller` → `service` → `repository`
 - [ ] 使用构造器注入，`@Transactional` 只出现在 service 层且读写标注正确
 - [ ] DTO 与 entity 已分离，请求参数已加 Bean Validation 校验
-- [ ] 命名、注释语言（{{COMMENT_LANGUAGE}}）与 Spotless 格式符合本规则
+- [ ] 命名、注释语言（{{COMMENT_LANGUAGE}}）与格式化/静态检查（`{{LINT_COMMAND}}`）符合本规则
 - [ ] 新增逻辑已有 JUnit 5 测试，`{{TEST_COMMAND}}` 全部通过
 - [ ] 没有把任何密钥、令牌或数据库口令写入仓库
 - [ ] 构建、静态检查与依赖漏洞检查已跑通（`{{BUILD_COMMAND}}`、`{{LINT_COMMAND}}` 及项目配置的漏洞检查任务）
