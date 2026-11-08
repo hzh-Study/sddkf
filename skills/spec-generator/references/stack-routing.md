@@ -6,9 +6,11 @@
 
 | 技术栈关键词 | 模板 |
 | --- | --- |
-| Vue 3, Vue3, Vue | `templates/vue3.md` |
+| UniApp, uni-app, uniapp | `templates/uniapp.md` |
+| Vue 3, Vue3 | `templates/vue3.md` |
 | React, React.js, Next.js | `templates/react.md` |
-| Spring Boot, SpringBoot, Spring | `templates/spring-boot.md` |
+| Spring Boot, SpringBoot | `templates/spring-boot.md` |
 | FastAPI, Fast Api | `templates/fastapi.md` |
-| UniApp, uni-app, uniapp, 小程序 | `templates/uniapp.md` |
 | 其他任意技术栈 | `generic-engine.md` |
+
+更具体的栈写在前面；不要使用会误命中其他栈的宽泛关键词（如单独的 `Vue`、`Spring`、`小程序`）。
