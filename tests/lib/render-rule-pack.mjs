@@ -28,7 +28,7 @@ const ALLOWED_PLACEHOLDERS = new Set([
   'GLOSSARY_TERMS',
 ]);
 
-const AGENTS_HEADINGS = [
+export const AGENTS_HEADINGS = [
   '## 1. 技术栈锁定',
   '## 2. 架构与目录约束',
   '## 3. 代码风格',
@@ -117,6 +117,21 @@ function stripTemplateNameComment(content) {
   return content.replace(new RegExp(`${TEMPLATE_NAME_COMMENT.source}\\r?\\n?`, 'g'), '');
 }
 
+export function readTemplateDisplayName(templateId, repoRoot = DEFAULT_REPO_ROOT) {
+  if (templateId === 'generic') return '通用引擎';
+  const refDir = path.join(repoRoot, 'skills', 'spec-generator', 'references');
+  const templateFile = path.join(refDir, 'templates', `${templateId}.md`);
+  if (!fs.existsSync(templateFile)) return templateId;
+  const content = fs.readFileSync(templateFile, 'utf8');
+  const match = content.match(TEMPLATE_NAME_COMMENT);
+  return match ? match[1].trim() : templateId;
+}
+
+export function resolveTemplateForStack(stack, repoRoot = DEFAULT_REPO_ROOT) {
+  const refDir = path.join(repoRoot, 'skills', 'spec-generator', 'references');
+  return resolveTemplate(stack, parseRoutingTable(refDir));
+}
+
 function computeTemplateLabel(templateId, rawTemplate) {
   if (templateId === 'generic') return '通用引擎';
   const match = rawTemplate.match(TEMPLATE_NAME_COMMENT);
@@ -181,7 +196,7 @@ export function renderRulePack(caseData, repoRoot = DEFAULT_REPO_ROOT) {
   const agentsMarkdown = substitutePlaceholders(templateBody, values, templatePath);
   for (const heading of AGENTS_HEADINGS) {
     if (!agentsMarkdown.includes(heading)) {
-      throw new Error(`${templatePath} 生成的 AGENTS.md 缺少章节「${heading}」`);
+      throw new Error(`${templatePath} 生成的 AGENTS.md 缺少顶层标题「${heading}」`);
     }
   }
 

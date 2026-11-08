@@ -11,7 +11,7 @@
     "TEST_FRAMEWORK": "JUnit 5 + Spring Boot Test",
     "TEST_COMMAND": "./mvnw test",
     "BUILD_COMMAND": "./mvnw verify",
-    "LINT_COMMAND": "./mvnw spotless:check",
+    "LINT_COMMAND": "./mvnw -q -DskipTests compile",
     "DATABASE": "PostgreSQL",
     "AUTH": "Spring Security + JWT",
     "COMMENT_LANGUAGE": "中文",
@@ -32,8 +32,8 @@
       "2": ["controller", "service", "repository", "dto"],
       "3": ["构造器注入", "@Transactional", "DTO", "record"],
       "4": ["JUnit 5", "@SpringBootTest", "Mockito", "Testcontainers"],
-      "5": ["SPRING_DATASOURCE_PASSWORD", "SQL 注入", "Spring Security", "dependency-check"]
+      "5": ["SPRING_DATASOURCE_PASSWORD", "SQL 注入", "Spring Security", "依赖漏洞"]
     },
-    "validationCommands": ["./mvnw test", "./mvnw verify", "./mvnw spotless:check"]
+    "validationCommands": ["./mvnw test", "./mvnw verify", "./mvnw -q -DskipTests compile"]
   }
 }

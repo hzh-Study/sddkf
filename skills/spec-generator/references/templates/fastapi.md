@@ -9,7 +9,7 @@
 
 ## 1. 技术栈锁定
 
-- 技术栈固定为 **FastAPI**（版本：{{STACK_VERSIONS}}），运行时统一使用 Python 3.12；不得替换为 Flask、Django 等其他 Web 框架，也不得更换 ASGI 服务器。
+- 技术栈固定为 **FastAPI**（版本：{{STACK_VERSIONS}}），运行时 Python 版本以 {{STACK_VERSIONS}} 为准；不得替换为 Flask、Django 等其他 Web 框架，也不得更换 ASGI 服务器。
 - 包管理器：{{PACKAGE_MANAGER}}，依赖锁文件（如 `uv.lock`）必须入库；构建与虚拟环境统一由 {{BUILD_TOOL}} 管理。
 - 核心依赖：{{KEY_DEPS}}。未经用户明确同意不得私换依赖，不得引入与 FastAPI/Pydantic 功能重复的库。
 - 不得擅自升降 FastAPI、Pydantic、Uvicorn 的主版本；版本变更需说明理由并同步更新锁文件。
