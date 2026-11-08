@@ -32,6 +32,20 @@ test('assembly.md 的顶层标题与占位符表与渲染器一致', () => {
   );
 });
 
+test('SKILL.md 设置为仅用户主动唤起', () => {
+  const content = fs.readFileSync(
+    path.join(REPO_ROOT, 'skills', 'spec-generator', 'SKILL.md'),
+    'utf8',
+  );
+  const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  assert.ok(frontmatter, 'SKILL.md 缺少 YAML frontmatter');
+  assert.match(
+    frontmatter[1],
+    /^disable-model-invocation:\s*true\s*$/m,
+    'SKILL.md 必须设置 disable-model-invocation: true',
+  );
+});
+
 test('路由表中的模板文件都存在', () => {
   const routing = fs.readFileSync(path.join(REFERENCES_DIR, 'stack-routing.md'), 'utf8');
   const templatePaths = [...routing.matchAll(/^\|[^|]+\|\s*`([^`]+)`\s*\|/gm)].map(

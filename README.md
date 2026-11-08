@@ -10,9 +10,13 @@ pwsh ./scripts/install.ps1
 
 安装后技能位于 `$HOME/.agents/skills/spec-generator`。
 
-## 在新项目唤起
+## 主动唤起
 
-在任意新项目里对编码代理说：
+技能设置为 `disable-model-invocation: true`，AI 不会自动触发。在任意新项目里由你显式唤起：
+
+> Use Skill: spec-generator
+
+（若宿主支持斜杠命令，也可用 `/spec-generator`。）然后给出：
 
 > 我要用 Vue3 做个博客
 

@@ -1,17 +1,21 @@
 ---
 name: spec-generator
-description: "采访式生成通用 AI 编码规则包（AGENTS.md + GLOSSARY.md）。当用户说「我要用 <技术栈> 做个 <项目>」、要求生成 AGENTS.md、项目规范或编码规则时使用；命中 Vue3/React/Spring Boot/FastAPI/UniApp 时使用精调模板，其余技术栈由通用引擎生成。"
+description: "采访式生成通用 AI 编码规则包（AGENTS.md + GLOSSARY.md）。仅供用户主动唤起；命中 Vue3/React/Spring Boot/FastAPI/UniApp 时使用精调模板，其余技术栈由通用引擎生成。"
+disable-model-invocation: true
 ---
 
 # 规范生成器
 
 这是一个纯 Markdown 技能，不依赖任何运行环境。目标：通过逐轮采访，把用户「想做什么、用什么技术栈」转化成目标项目根目录下的规则包，约束编码代理不乱换技术栈、不乱建目录、写测试、守安全红线。
 
-## 何时使用
+## 唤起方式
 
-- 用户说「我要用 <技术栈> 做个 <项目>」、「帮我生成 AGENTS.md」、「给这个项目写一套编码规范」。
-- 目标是全新初始化的项目（不处理老项目半路补规范）。
-- 用户要求规则供编码代理（Trae、Cursor、Copilot 等）阅读，且希望是通用格式。
+本技能设置为 `disable-model-invocation: true`：编码代理不会自动触发，只有用户显式唤起时执行。
+
+- 在目标项目里显式输入 `Use Skill: spec-generator`（或宿主提供的 `/spec-generator` 命令）。
+- 随后给出「我要用 <技术栈> 做个 <项目>」；也可以只给项目描述，由采访环节追问技术栈。
+
+适用范围：全新初始化的项目（不处理老项目半路补规范）；规则供编码代理阅读，输出通用格式。
 
 ## 工作流程
 
