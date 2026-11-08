@@ -25,3 +25,5 @@ npm test
 ```
 
 测试只断言生成的规则包文件本身；技能运行时不需要 Node。
+
+本仓库命令在 PowerShell 7 下执行；多行文本用 here-string（`@'...'@`）或 `--body-file`，不要使用 bash heredoc。

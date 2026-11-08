@@ -6,7 +6,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 export const DEFAULT_REPO_ROOT = path.resolve(HERE, '..', '..');
 
-const ALLOWED_PLACEHOLDERS = new Set([
+export const ALLOWED_PLACEHOLDERS = new Set([
   'PROJECT_NAME',
   'PROJECT_SUMMARY',
   'STACK',
