@@ -23,12 +23,13 @@ disable-model-invocation: true
 2. **路由技术栈**：读取 `references/stack-routing.md`，按表格顺序做大小写不敏感的子串匹配；命中精调模板则读取 `references/templates/<stem>.md`，否则使用 `references/generic-engine.md`。
 3. **采访**：读取 `references/interview.md`，逐轮提问。每轮把当前能问的问题一次问完，每题附推荐答案；用户回答「是」即采用推荐答案。至少覆盖项目名、一句话简介、技术栈与版本、构建/包管理工具、数据库、登录鉴权、注释语言、测试框架、验证命令、部署目标，并从描述中提炼业务术语。
 4. **装配**：读取 `references/assembly.md`，按其中的占位符与校验规则填充模板。
-5. **写文件**：在目标项目根目录写入 `AGENTS.md` 与 `GLOSSARY.md`；术语表使用 `references/glossary-template.md`。
+5. **写文件**：写入前检查目标项目根目录是否已有 `AGENTS.md` 或 `GLOSSARY.md`。已存在时先列出差异并询问用户「覆盖 / 合并 / 跳过」，默认跳过；用户确认覆盖后，先把原文件备份为 `.bak`，再写入 `AGENTS.md` 与 `GLOSSARY.md`；术语表使用 `references/glossary-template.md`。
 6. **回报**：列出生成的文件、命中的模板、需要用户确认的假设与验证命令。
 
 ## 硬性约束
 
 - 只生成 `AGENTS.md` 与 `GLOSSARY.md` 两个通用文件；不生成 `.cursor/`、`.trae/`、`.github/copilot-instructions.md` 等任何编码代理专有配置。
+- 目标项目已有同名规则文件时，先询问再覆盖，且覆盖前备份为 `.bak`；不得静默覆盖。
 - 规则全部用中文撰写；代码标识符遵循目标技术栈惯例。
 - 输出正文 = 命中模板的正文逐字替换占位符；模板与项目实际不符时，回改仓库中的模板并说明，而不是现场改写输出。
 - 不得残留任何 `{{...}}` 占位符；采访答案缺失时必须追问，不得用猜测值填充。

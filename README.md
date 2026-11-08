@@ -5,20 +5,18 @@
 ## 全局安装
 
 ```powershell
-pwsh ./scripts/install.ps1
+npm run skill:install
 ```
 
-安装后技能位于 `$HOME/.agents/skills/spec-generator`。
+等价于直接执行 `pwsh ./scripts/install.ps1`。安装后技能位于 `$HOME/.agents/skills/spec-generator`。
 
 ## 主动唤起
 
 技能设置为 `disable-model-invocation: true`，AI 不会自动触发。在任意新项目里由你显式唤起：
 
-> Use Skill: spec-generator
+> Use Skill: spec-generator 我要用 Vue3 做个博客
 
-（若宿主支持斜杠命令，也可用 `/spec-generator`。）然后给出：
-
-> 我要用 Vue3 做个博客
+也可以分两条消息：先 `Use Skill: spec-generator`（宿主支持时也可用 `/spec-generator`），再给出项目描述。
 
 生成器会逐轮提问（每题附推荐答案，回答「是」即采用），最后写入规则包。命中 Vue3/React/Spring Boot/FastAPI/UniApp 时使用精调模板，其余技术栈由通用引擎生成。
 
@@ -31,3 +29,9 @@ npm test
 测试只断言生成的规则包文件本身；技能运行时不需要 Node。
 
 本仓库命令在 PowerShell 7 下执行；多行文本用 here-string（`@'...'@`）或 `--body-file`，不要使用 bash heredoc。
+
+推送后查看 CI 结果：
+
+```powershell
+gh run watch --exit-status
+```

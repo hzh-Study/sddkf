@@ -4,6 +4,7 @@
   "private": true,
   "description": "规范生成器：采访式生成通用 AI 编码规则包的技能",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "skill:install": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1"
   }
 }

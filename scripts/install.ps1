@@ -1,4 +1,6 @@
 $ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 
 $source = Join-Path $PSScriptRoot '..\skills\spec-generator'
 if (-not (Test-Path -LiteralPath $source -PathType Container)) {
@@ -14,4 +16,4 @@ if (Test-Path -LiteralPath $target) {
 }
 
 Copy-Item -LiteralPath $source -Destination $target -Recurse -Force
-Write-Host "已安装 spec-generator 到 $target"
+Write-Host "Installed spec-generator to $target"
