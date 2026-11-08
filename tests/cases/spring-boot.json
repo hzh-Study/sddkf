@@ -1,0 +1,39 @@
+{
+  "id": "spring-boot-order-service",
+  "stack": "Spring Boot",
+  "answers": {
+    "PROJECT_NAME": "Spring Boot 订单服务",
+    "PROJECT_SUMMARY": "一个提供订单创建、库存校验与履约状态流转的后端服务",
+    "STACK": "Spring Boot",
+    "STACK_VERSIONS": "Java 21, Spring Boot 3.4",
+    "BUILD_TOOL": "Maven（Maven Wrapper）",
+    "PACKAGE_MANAGER": "Maven",
+    "TEST_FRAMEWORK": "JUnit 5 + Spring Boot Test",
+    "TEST_COMMAND": "./mvnw test",
+    "BUILD_COMMAND": "./mvnw verify",
+    "LINT_COMMAND": "./mvnw -q -DskipTests compile",
+    "DATABASE": "PostgreSQL",
+    "AUTH": "Spring Security + JWT",
+    "COMMENT_LANGUAGE": "中文",
+    "KEY_DEPS": "Spring Web, Spring Data JPA, Spring Security, Bean Validation, PostgreSQL Driver",
+    "TARGET_DIRS": "src/main/java/, src/main/resources/, src/test/java/",
+    "DEPLOY_TARGET": "容器化部署到 Linux 服务器",
+    "DATE": "2026-11-08"
+  },
+  "glossary": [
+    { "term": "订单", "definition": "客户下单后生成的交易记录，包含商品明细与金额" },
+    { "term": "履约", "definition": "把已支付订单交付完成的处理流程" },
+    { "term": "库存", "definition": "SKU 当前可售数量" }
+  ],
+  "expect": {
+    "template": "spring-boot",
+    "moduleMarkers": {
+      "1": ["Java 21", "Spring Boot 3.4", "Maven", "Spring Data JPA"],
+      "2": ["controller", "service", "repository", "dto"],
+      "3": ["构造器注入", "@Transactional", "DTO", "record"],
+      "4": ["JUnit 5", "@SpringBootTest", "Mockito", "Testcontainers"],
+      "5": ["SPRING_DATASOURCE_PASSWORD", "SQL 注入", "Spring Security", "依赖漏洞"]
+    },
+    "validationCommands": ["./mvnw test", "./mvnw verify", "./mvnw -q -DskipTests compile"]
+  }
+}

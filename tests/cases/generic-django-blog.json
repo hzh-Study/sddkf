@@ -1,0 +1,38 @@
+{
+  "id": "generic-django-blog",
+  "stack": "Django",
+  "answers": {
+    "PROJECT_NAME": "Django 博客",
+    "PROJECT_SUMMARY": "一个支持文章发布、标签分类与评论的博客站点",
+    "STACK": "Django",
+    "STACK_VERSIONS": "Django 5.0, Python 3.12",
+    "BUILD_TOOL": "Django 管理命令",
+    "PACKAGE_MANAGER": "pip + uv",
+    "TEST_FRAMEWORK": "pytest",
+    "TEST_COMMAND": "pytest",
+    "BUILD_COMMAND": "python manage.py check",
+    "LINT_COMMAND": "ruff check .",
+    "DATABASE": "SQLite",
+    "AUTH": "不需要登录",
+    "COMMENT_LANGUAGE": "中文",
+    "KEY_DEPS": "Django, pytest, ruff",
+    "TARGET_DIRS": "blog/, accounts/, config/, tests/",
+    "DEPLOY_TARGET": "单台 Linux 服务器 + Gunicorn",
+    "DATE": "2026-11-08"
+  },
+  "glossary": [
+    { "term": "文章", "definition": "博客的核心内容单元" },
+    { "term": "标签", "definition": "用于对文章分类的关键词" }
+  ],
+  "expect": {
+    "template": "generic",
+    "moduleMarkers": {
+      "1": ["Django"],
+      "2": ["manage.py"],
+      "3": ["PEP 8"],
+      "4": ["pytest"],
+      "5": ["SECRET_KEY"]
+    },
+    "validationCommands": ["pytest", "python manage.py check", "ruff check ."]
+  }
+}

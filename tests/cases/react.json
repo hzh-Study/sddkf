@@ -1,0 +1,39 @@
+{
+  "id": "react-task-board",
+  "stack": "React",
+  "answers": {
+    "PROJECT_NAME": "React 任务看板",
+    "PROJECT_SUMMARY": "一个支持任务分栏、拖拽排序与筛选的团队任务看板",
+    "STACK": "React",
+    "STACK_VERSIONS": "React 19.0, TypeScript 5.6, Node.js 22 LTS",
+    "BUILD_TOOL": "Vite 6",
+    "PACKAGE_MANAGER": "npm，锁文件 package-lock.json",
+    "TEST_FRAMEWORK": "Vitest + React Testing Library",
+    "TEST_COMMAND": "npm test",
+    "BUILD_COMMAND": "npm run build",
+    "LINT_COMMAND": "npm run lint",
+    "DATABASE": "浏览器 localStorage（任务数据本地持久化）",
+    "AUTH": "JWT（HttpOnly Cookie）",
+    "COMMENT_LANGUAGE": "中文",
+    "KEY_DEPS": "react, react-dom, react-router, zustand, vitest, @testing-library/react, eslint",
+    "TARGET_DIRS": "src/components/, src/pages/, src/hooks/, src/services/, src/styles/",
+    "DEPLOY_TARGET": "静态资源部署到 Nginx",
+    "DATE": "2026-11-08"
+  },
+  "glossary": [
+    { "term": "看板", "definition": "按状态分列展示任务的协作视图" },
+    { "term": "卡片", "definition": "看板中承载单个任务的最小单元" },
+    { "term": "泳道", "definition": "按负责人或优先级对卡片做横向分组的行" }
+  ],
+  "expect": {
+    "template": "react",
+    "moduleMarkers": {
+      "1": ["React 19", "Vite", "React Router", "package-lock.json"],
+      "2": ["src/components", "src/pages", "src/hooks", "src/services"],
+      "3": ["函数组件", "Hooks", "useEffect", "react-hooks"],
+      "4": ["Vitest", "React Testing Library", "@testing-library/user-event"],
+      "5": ["dangerouslySetInnerHTML", "VITE_", "npm audit"]
+    },
+    "validationCommands": ["npm test", "npm run build", "npm run lint"]
+  }
+}
