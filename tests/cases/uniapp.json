@@ -1,0 +1,39 @@
+{
+  "id": "uniapp-mall",
+  "stack": "UniApp",
+  "answers": {
+    "PROJECT_NAME": "UniApp 商城",
+    "PROJECT_SUMMARY": "一个支持商品浏览、购物车与订单管理的小程序商城",
+    "STACK": "UniApp",
+    "STACK_VERSIONS": "uni-app 3.x, Vue 3.4",
+    "BUILD_TOOL": "Vite + HBuilderX",
+    "PACKAGE_MANAGER": "npm",
+    "TEST_FRAMEWORK": "Vitest",
+    "TEST_COMMAND": "npm test",
+    "BUILD_COMMAND": "npm run build:h5",
+    "LINT_COMMAND": "npm run lint",
+    "DATABASE": "不需要数据库，状态存于 uni.setStorage 本地缓存",
+    "AUTH": "微信小程序登录（uni.login）",
+    "COMMENT_LANGUAGE": "中文",
+    "KEY_DEPS": "vue, pinia, @dcloudio/uni-app",
+    "TARGET_DIRS": "pages/, components/, static/, stores/, utils/, pages.json, manifest.json",
+    "DEPLOY_TARGET": "微信小程序 + H5 静态托管",
+    "DATE": "2026-11-08"
+  },
+  "glossary": [
+    { "term": "商品", "definition": "商城中可浏览、加购与下单的销售单元" },
+    { "term": "购物车", "definition": "用户暂存待购商品的本地集合" },
+    { "term": "订单", "definition": "用户确认购买后生成的交易记录" }
+  ],
+  "expect": {
+    "template": "uniapp",
+    "moduleMarkers": {
+      "1": ["uni-app", "Vue 3", "package.json"],
+      "2": ["pages.json", "pages/", "components/", "static/"],
+      "3": ["<script setup>", "#ifdef", "uni."],
+      "4": ["Vitest", "__tests__/", "uni."],
+      "5": ["manifest.json", "uni.request", "v-html", "HTTPS"]
+    },
+    "validationCommands": ["npm test", "npm run build:h5", "npm run lint"]
+  }
+}
